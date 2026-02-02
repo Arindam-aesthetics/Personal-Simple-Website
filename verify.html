@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Human Verification</title>
+  <meta name="robots" content="noindex">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <style>
+    body {
+      background: #1a1a1dbf;
+      color: rgba(255, 255, 255, 0.719);
+      font-style: normal;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Quick human check </h2>
+    <p>..this helps me avoid bots</p>
+    <p>(just an excuse to show off this verify page)</p>
+
+    <div id="cf-turnstile"></div>
+  </div>
+  <script>
+  window.onload = () => {
+    turnstile.render("#cf-turnstile", {
+      sitekey: "0x4AAAAAACWoMcAigboMDD2f",
+      callback: function () {
+        window.location.href = "/";
+      }
+    });
+  };
+</script>
+</body>
+</html>
